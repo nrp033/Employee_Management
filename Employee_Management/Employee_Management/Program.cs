@@ -4,28 +4,28 @@
     {
         static void Main(string[] args)
         {
-            int IS_FullTime = 1;
-            int IS_PartTime = 2;
+            const int IS_FullTime = 1;
+            const int IS_PartTime = 2;
             int EmpRatePerHr = 20;
             int EmpWage = 0;
             int EmpWorkingHr = 0;
             Random rd = new Random();
             int EmpCheck = rd.Next(0, 3);
+            switch (EmpCheck)
+            {
+                case IS_FullTime:
+                    EmpWorkingHr = 8;
+                    break;
+                case IS_PartTime:
+                    EmpWorkingHr = 4;
+                    break;
+                default:
+                    EmpWorkingHr = 0;
+                    Console.WriteLine("\n\tEmployee is Absent !");
+                    break;
 
-            if (EmpCheck == IS_FullTime)
-            {
-                EmpWorkingHr = 8;
             }
-            else if (EmpCheck == IS_PartTime)
-            {
-                EmpWorkingHr = 4;
-            }
-            else
-            {
-                EmpWorkingHr = 0;
-
-                Console.WriteLine("Employee is Absent !");
-            }
+           
 
             EmpWage = EmpWorkingHr * EmpRatePerHr;
 
