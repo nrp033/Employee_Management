@@ -18,22 +18,21 @@ namespace Employee_Management
         private int MaxMonthHrs;
         private int TotalEmpWage;
 
-        public WageCalculator(string Company, int EmpRatePerHr, int MaxWorkinDays, int MaxMonthHrs)
+        public WageCalculator(string company, int empRatePerHr, int maxWorkinDays, int maxMonthHrs)
 
         {
-           this. Company = Company;
-            this.EmpRatePerHr = EmpRatePerHr;
-            this.MaxWorkinDays = MaxWorkinDays;
-           this. MaxMonthHrs = MaxMonthHrs;
+           this. Company = company;
+            this.EmpRatePerHr = empRatePerHr;
+            this.MaxWorkinDays = maxWorkinDays;
+           this.MaxMonthHrs = maxMonthHrs;
         }
         public void ComputeEmpWage()
         {
 
-            int TotalMonthWage = 0;  //stores Employee Wage For Month 
             int EmpWorkingHr = 0;    //Stores Employee Working Hours for Day
             int EmpWorkingDays = 0; //Working Days in Month
             int TotalEmpHrs = 0;
-            while (TotalEmpHrs < MaxMonthHrs && EmpWorkingDays < MaxWorkinDays)
+            while (TotalEmpHrs < this.MaxMonthHrs && EmpWorkingDays < this.MaxWorkinDays)
             {
                 EmpWorkingDays++; //Increament Working Day by 1 in Month
 
@@ -60,13 +59,12 @@ namespace Employee_Management
                 Console.WriteLine("\tDay #: " + EmpWorkingDays + " Employee Working Hours : " + TotalEmpHrs);
             }
 
-            TotalMonthWage = MaxMonthHrs * EmpRatePerHr;    //Calculating Emplyee Wage For Month
-            Console.WriteLine("\n\tEmployee Wage For Company " + Company + " is " + TotalMonthWage + "\n");
-
-
-
-
-
+            TotalEmpWage = MaxMonthHrs * EmpRatePerHr;    //Calculating Emplyee Wage For Month
+            Console.WriteLine("\n\tEmployee Wage For Company " + Company + " is " + TotalEmpWage + "\n");
+        }
+        public string toString()
+        {
+            return "\n\tTotal Emp Wage For Company  " + this.Company + " is " + this.TotalEmpWage+ "\n";
         }
     }
 }
