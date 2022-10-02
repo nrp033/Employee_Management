@@ -2,21 +2,22 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+
+        const int IS_FullTime = 1;
+        const int IS_PartTime = 2;
+        const int EmpRatePerHr = 20;  //Employee Rate Per Hours
+        const int MaxWorkingDays = 20;   //Max Working Days In Month
+        const int MaxMonthHrs = 100;  //Max Hours In Month
+
+
+         static void ComputeEmpWage()
         {
-            const int IS_FullTime = 1;
-            const int IS_PartTime = 2;
-
-            const int EmpRatePerHr = 20;  //Employee Rate Per Hours
-            const int MaxWorkingDays = 20;   //Max Working Days In Month
-            const int MaxMonthHrs = 100;  //Max Hours In Month
-
 
             int TotalMonthWage = 0;  //stores Employee Wage For Month 
             int EmpWorkingHr = 0;    //Stores Employee Working Hours for Day
             int EmpWorkingDays = 0; //Working Days in Month
             int TotalEmpHrs = 0;
-           while(TotalEmpHrs < MaxMonthHrs && EmpWorkingDays < MaxWorkingDays )
+            while (TotalEmpHrs < MaxMonthHrs && EmpWorkingDays < MaxWorkingDays)
             {
                 EmpWorkingDays++; //Increament Working Day by 1 in Month
 
@@ -40,13 +41,19 @@
                 }
 
                 TotalEmpHrs += EmpWorkingHr;   //Calculating Total Employee Working Hours In Month
-                Console.WriteLine("\tDay #: "+EmpWorkingDays+" Employee Working Hours : "+TotalEmpHrs);
-           }
+                Console.WriteLine("\tDay #: " + EmpWorkingDays + " Employee Working Hours : " + TotalEmpHrs);
+            }
 
             TotalMonthWage = MaxMonthHrs * EmpRatePerHr;    //Calculating Emplyee Wage For Month
-            Console.WriteLine("\n\n\t******* Employee Wage For Month : " +TotalMonthWage+" *******");
+            Console.WriteLine("\n\n\t******* Employee Wage For Month : " + TotalMonthWage + " *******");
             Console.ReadKey();
 
+
+
+        }
+        static void Main(string[] args)
+        {
+            ComputeEmpWage();
         }
     }
 }
