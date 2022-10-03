@@ -4,13 +4,11 @@
     {
         static void Main(string[] args)
         {
-            WageCalculator Dmart = new WageCalculator("Dmart", 20, 20, 100);
-            WageCalculator Reliance = new WageCalculator("Reliance", 20, 20, 100);
-            Dmart.ComputeEmpWage();
-            Console.WriteLine(Dmart.toString());
-            Reliance.ComputeEmpWage();
-            Console.WriteLine(Reliance.toString());
-
+            EmpWageBuilderArray builder = new EmpWageBuilderArray();
+            builder.addCompanyEmpWage("Dmart", 20, 25, 100);
+            builder.addCompanyEmpWage("Reliance", 20, 26, 80);
+            builder.addCompanyEmpWage("Tata Motors", 20, 26, 120);
+            builder.computeEmpWage();
             Console.ReadLine();
         }
     }
